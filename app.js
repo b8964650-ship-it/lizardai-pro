@@ -17,7 +17,7 @@ Never repeat the user's question. Do not use generic fallback templates. Be conc
 `;
 
 // Replace this with your valid API key from Google AI Studio (starts with AIzaSy...)
-const GEMINI_API_KEY = "YOUR_ACTUAL_GEMINI_API_KEY_HERE";
+const GEMINI_API_KEY = "AQ.Ab8RN6KUVxla4covOW-m9_WO52SITd0BV1STh30CbAJpNJXDgQ";
 
 function speakText(text) {
   if ('speechSynthesis' in window) {
