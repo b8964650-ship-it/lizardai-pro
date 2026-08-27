@@ -16,7 +16,8 @@ Primary Language: Fluent Asante Twi (enforce proper characters like ɛ and ɔ). 
 Never repeat the user's question. Do not use generic fallback templates. Be concise, intelligent, and direct.
 `;
 
-const GEMINI_API_KEY = "AQ.Ab8RN6LEWUwpuavlGf1ZFZw1pfIM6Z00YfF2kt3GMf7_ZoU8Ew";
+// Replace this with your valid API key from Google AI Studio (starts with AIzaSy...)
+const GEMINI_API_KEY = "YOUR_ACTUAL_GEMINI_API_KEY_HERE";
 
 function speakText(text) {
   if ('speechSynthesis' in window) {
@@ -31,8 +32,8 @@ async function fetchGeminiResponse(userMessage) {
   // Append user message to memory context
   conversationHistory.push({ role: "user", parts: [{ text: userMessage }] });
 
-  // Endpoint updated to gemini-3.6-flash
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=${GEMINI_API_KEY}`;
+  // Endpoint updated to gemini-2.5-flash
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;
 
   const payload = {
     system_instruction: {
