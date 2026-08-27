@@ -16,9 +16,6 @@ Primary Language: Fluent Asante Twi (enforce proper characters like ɛ and ɔ). 
 Never repeat the user's question. Do not use generic fallback templates. Be concise, intelligent, and direct.
 `;
 
-// Replace this with your valid API key from Google AI Studio (starts with AIzaSy...)
-const GEMINI_API_KEY = "AQ.Ab8RN6KUVxla4covOW-m9_WO52SITd0BV1STh30CbAJpNJXDgQ";
-
 function speakText(text) {
   if ('speechSynthesis' in window) {
     const cleanText = text.replace(/[*_#•]/g, '');
@@ -32,8 +29,8 @@ async function fetchGeminiResponse(userMessage) {
   // Append user message to memory context
   conversationHistory.push({ role: "user", parts: [{ text: userMessage }] });
 
-  // Endpoint updated to gemini-2.5-flash
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;
+  // Endpoint updated to call your Vercel serverless function proxy safely
+  const url = "/api/chat";
 
   const payload = {
     system_instruction: {
@@ -96,4 +93,4 @@ function appendMessage(sender, text, color) {
   chatBox.appendChild(msgContainer);
   chatBox.scrollTop = chatBox.scrollHeight;
   return msgContainer;
-}
+    }
